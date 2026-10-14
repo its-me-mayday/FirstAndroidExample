@@ -17,7 +17,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -42,7 +41,7 @@ fun HomeScreen() { // Parent. Gestisce lo stato attraverso la variabile counter 
 
                     Spacer(Modifier.height(16.dp))
 
-                    CounterSection(counter, onIncrement = { counter += 1 })
+                    CounterSection(counter = counter, onIncrement = { counter += 1 })
 
                     Spacer(Modifier.height(24.dp))
                 }
