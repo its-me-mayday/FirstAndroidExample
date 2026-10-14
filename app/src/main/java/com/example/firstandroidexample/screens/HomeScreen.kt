@@ -15,6 +15,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,7 +28,8 @@ import com.example.firstandroidexample.ui.theme.FirstandroidexampleTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() { // Parent
+fun HomeScreen() { // Parent. Gestisce lo stato attraverso la variabile counter e di conseguenza HomeScreen si può definire Stateful.
+    var counter by remember { mutableIntStateOf(value = 0) }
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Home") })
@@ -36,7 +42,7 @@ fun HomeScreen() { // Parent
 
                     Spacer(Modifier.height(16.dp))
 
-                    CounterSection(counter = 0, onIncrement = {})
+                    CounterSection(counter, onIncrement = { counter += 1 })
 
                     Spacer(Modifier.height(24.dp))
                 }
